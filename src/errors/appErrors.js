@@ -16,7 +16,7 @@ class AppError extends Error {
 class NotFoundError extends AppError {
   constructor(entity, params, message) {
     super(
-      message || `Couldn't find a(an) ${entity} with: ${JSON.stringify(params)}`
+      message || `Email not found`
     );
     this.status = NOT_FOUND;
   }
@@ -45,7 +45,7 @@ class AuthorizationError extends AppError {
 
 class AuthenticationError extends AppError {
   constructor(message) {
-    super(message || getStatusText(FORBIDDEN));
+    super(message || 'Password not found');
     this.status = FORBIDDEN;
   }
 }
